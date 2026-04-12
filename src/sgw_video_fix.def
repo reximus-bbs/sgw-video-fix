@@ -1,0 +1,34 @@
+; sgw_video_fix.def
+;
+; Exports for the drop-in wmvcore.dll proxy used by the SGW video fix.
+; LIBRARY must be 'wmvcore' so the loader sees our DLL under the name
+; the game's import table expects.  Each documented wmvcore.dll export
+; is aliased to the corresponding `My_` symbol in sgw_video_fix.cpp.
+;
+; `DllRegisterServer` is marked PRIVATE because it is only implemented
+; as a forwarding thunk to the real wmvcore.dll and should never be
+; consumed via an import library — this suppresses the LNK4104 warning.
+
+LIBRARY wmvcore
+EXPORTS
+    WMCreateReader                        = My_WMCreateReader
+    WMCreateSyncReader                    = My_WMCreateSyncReader
+    WMCreateReaderPriv                    = My_WMCreateReaderPriv
+    WMCreateSyncReaderPriv                = My_WMCreateSyncReaderPriv
+    WMCreateEditor                        = My_WMCreateEditor
+    WMCreateWriter                        = My_WMCreateWriter
+    WMCreateWriterFileSink                = My_WMCreateWriterFileSink
+    WMCreateWriterNetworkSink             = My_WMCreateWriterNetworkSink
+    WMCreateWriterPriv                    = My_WMCreateWriterPriv
+    WMCreateWriterPushSink                = My_WMCreateWriterPushSink
+    WMCreateIndexer                       = My_WMCreateIndexer
+    WMCreateProfileManager                = My_WMCreateProfileManager
+    WMCreateBackupRestorer                = My_WMCreateBackupRestorer
+    WMCreateBackupRestorerPrivate         = My_WMCreateBackupRestorerPrivate
+    WMCreateLicenseRevocationAgentPrivate = My_WMCreateLicenseRevocationAgentPrivate
+    WMIsAvailableOffline                  = My_WMIsAvailableOffline
+    WMIsContentProtected                  = My_WMIsContentProtected
+    WMValidateData                        = My_WMValidateData
+    WMCheckURLExtension                   = My_WMCheckURLExtension
+    WMCheckURLScheme                      = My_WMCheckURLScheme
+    DllRegisterServer                     = My_DllRegisterServer PRIVATE

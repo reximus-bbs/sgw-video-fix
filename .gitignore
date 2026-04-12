@@ -1,0 +1,23 @@
+# Build output
+build/
+*.obj
+*.exp
+*.lib
+*.pdb
+*.ilk
+
+# Diagnostic logs
+wmvproxy.log
+
+# Local-dev convenience scripts (not part of public release)
+_build_local.bat
+
+# IDE / editor
+.vs/
+.vscode/
+*.user
+*.suo
+*.swp
+*~
+Thumbs.db
+.DS_Store

@@ -290,7 +290,7 @@ selects on non-widescreen displays. `initial_bg.wmv` is not actually
 a video at all - it is a 0.51-second audio stub the engine plays once
 during the splash sequence. Every other file is a `wmv3` (Windows
 Media Video 9) Main-profile bitstream with a `yuv420p` source layout
-- which is exactly the format that triggers the
+which is exactly the format that triggers the
 greyscale-upside-down rendering bug on Windows 8 and later, because
 the engine's `D3DXLoadSurfaceFromMemory` upload assumes the byte
 layout that XP/Vista/7 returned (packed RGB) and not the planar
